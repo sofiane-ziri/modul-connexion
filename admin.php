@@ -51,6 +51,8 @@ if ($_SESSION['user']['id'] == 1) {
                     header("Location:index.php");
                 } ?>
                 </table> 
+
+                
                 <form action="admin-set.php" method="post">
                 <div class="form-group">
                 <?php 
