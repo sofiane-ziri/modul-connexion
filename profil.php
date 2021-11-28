@@ -30,7 +30,7 @@ $data = $req->fetch();
     /* Affiche la page admin seulement pour l'utilisateur admin */
     if (isset($_SESSION['user']['id'])) {
         if ($_SESSION['user']['id'] == 1) {
-            echo '<a class="btn btn-danger btn-lg" href="admin.php">DashBoard</a>';
+            echo '<a class="btn btn-danger btn-lg" href="admin.php">Dashboadr</a>';
         }
     }
     ?>

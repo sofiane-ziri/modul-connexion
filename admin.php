@@ -7,29 +7,7 @@ if ($_SESSION['user']['id'] == 1) {
     $check = $bdd->prepare('SELECT * FROM utilisateurs');
     $check->execute();
     $data = $check->fetchAll();
-    if (isset($_POST['update'])) {
-        $nom = htmlspecialchars(trim($_POST['nom']));
-        $prenom = htmlspecialchars(trim($_POST['prenom']));
-        $email = htmlspecialchars(trim($_POST['email']));
-        $id = htmlspecialchars(trim($_POST['update']));
-
-        $update = $bdd->prepare('UPDATE utilisateurs SET login = :login, prenom=:prenom, nom=:nom WHERE id = :id');
-        $update->execute(array(
-            "id" => $id,
-            "login" => $email,
-            "nom" => $nom,
-            "prenom" => $prenom,
-        ));
-        header("Location:admin.php");
-    }
-    if (isset($_POST['delete'])) {
-        $id = htmlspecialchars(trim($_POST['delete']));
-        $delete = $bdd->prepare('DELETE FROM `utilisateurs` WHERE id = :id');
-        $delete->execute(array(
-            "id" => $id,
-        ));
-        header("Location:admin.php");
-    }
+    
 ?>
 
     <head>
@@ -54,11 +32,11 @@ if ($_SESSION['user']['id'] == 1) {
 
                     <?php for ($i = 0; isset($data[$i]); $i++) { ?>
                         <tr>
-                            <form method="post">
+                            <form action=admin-set.php method="post">
                                 <td><?= $data[$i]['id'] ?></td>
-                                <td><input type="text" name="email" value="<?= $data[$i]['login'] ?>"></td>
-                                <td><input type="text" name="prenom" value="<?= $data[$i]['prenom'] ?>"></td>
-                                <td><input type="text" name="nom" value="<?= $data[$i]['nom'] ?>"></td>
+                                <td><input type="text" name="email"  class="form-control" value="<?= $data[$i]['login'] ?>"></td>
+                                <td><input type="text" name="prenom" class="form-control" value="<?= $data[$i]['prenom'] ?>"></td>
+                                <td><input type="text" name="nom" class="form-control" value="<?= $data[$i]['nom'] ?>"></td>
                                 <td>
                                     <button type="submit" class="btn btn-info btn-lg" name="update" value="<?= $data[$i]['id'] ?>">Modifier</button>
                                 </td>
@@ -67,16 +45,70 @@ if ($_SESSION['user']['id'] == 1) {
                                 </td>
                             </form>
                         </tr>
+
                 <?php }
                 } else {
                     header("Location:index.php");
                 } ?>
-                </table>
+                </table> 
+                <form action="admin-set.php" method="post">
+                <div class="form-group">
+                <?php 
+                if(isset($_GET['reg_err']))
+                {
+                    $err = htmlspecialchars($_GET['reg_err']);
+
+                    switch($err)
+                    {
+                        case 'success':
+                        ?>
+                            <div class="alert alert-success">
+                                <strong>Succès</strong> inscription réussie !
+                            </div>
+                        <?php
+                        break;
+
+                        case 'password':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> mot de passe différent
+                            </div>   
+                        <?php 
+                        break;
+
+                        case 'already':
+                        ?>
+                            <div class="alert alert-danger">
+                                <strong>Erreur</strong> compte deja existant
+                            </div>
+                        <?php 
+
+                    }
+                }
+                ?>
+                    <input type="email" name="login" class="form-control" placeholder="Email" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="prenom" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="nom" class="form-control" placeholder="Nom" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password_retype" class="form-control" placeholder="Validez le mot de passe" required="required" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info btn-lg">Ajoutez un utilisateur</button>
+                </div>   
+            </form>
+
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
             </div>
-            <p class="Add-Button"><a href="inscription.php">ajouter un utilisateur</a></p>
             <p class="text-left"><a href="profil.php">retour</a></p>
         </div>
     </body>
