@@ -19,6 +19,7 @@ $data = $req->fetch();
 <head>
     <title>Espace membre</title>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png" type="image/x-con">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->

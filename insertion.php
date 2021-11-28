@@ -53,4 +53,3 @@ if(!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom']) 
         }else{ header('Location: inscription.php?reg_err=prenom_length'); die();}
         }else{ header('Location: inscription.php?reg_err=already'); die();}
 }
-?>
