@@ -40,14 +40,8 @@ if ($_SESSION['user']['id'] == 1) {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
 
-    <body> 
-        <style>
-            body
-            {
-                background: rgb(59,190,132);
-background: linear-gradient(155deg, rgba(59,190,132,1) 0%, rgba(123,210,198,1) 26%, rgba(0,255,229,1) 100%);
-}
- </style>
+    <body class="background"> 
+        <div class="admin">
             <h1 class="p-5"><?php echo $_SESSION['user']['prenom']; ?></h1>
             <div class="login-form">
 
@@ -82,6 +76,8 @@ background: linear-gradient(155deg, rgba(59,190,132,1) 0%, rgba(123,210,198,1) 2
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
             </div>
+            <p class="Add-Button"><a href="inscription.php">ajouter un utilisateur</a></p>
+            <p class="text-left"><a href="profil.php">retour</a></p>
         </div>
     </body>
 
