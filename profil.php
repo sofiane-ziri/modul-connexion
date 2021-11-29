@@ -50,15 +50,14 @@ $data = $req->fetch();
                 /* Affiche la page admin seulement pour l'utilisateur admin */
                 if (isset($_SESSION['user']['id'])) {
                     if ($_SESSION['user']['id'] == 1) {
-                        echo '<a class="btn btn-secondary" href="admin.php">Dashboard</a>';
+                        echo '<div class="btn-group" role="group" aria-label="Basic example">
+                              <a class="btn btn-secondary" href="admin.php">Dashboard</a>
+                              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#change_password">Changer mon mot de passe</button>
+                              <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+                              </div>';
                     }
                 }
                 ?>
-                <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
-                    Changer mon mot de passe
-                </button>
             </div>
         </div>
     </div>

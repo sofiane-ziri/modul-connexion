@@ -14,7 +14,7 @@ if ($_SESSION['user']['id'] == 1) {
         <title>Espace membre</title>
         <meta charset="utf-8">
         <link href="style.css" rel="stylesheet">
-        <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/000000/apple-settings.png"type="image/x-con">
+        <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/50/000000/apple-settings.png" type="image/x-con">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
@@ -22,37 +22,37 @@ if ($_SESSION['user']['id'] == 1) {
     <body class="background">
         <div class="admin">
             <h1 class="title"><?php echo $_SESSION['user']['prenom']; ?></h1>
-            
-                            <table>
-                                <th>id</th>
-                                <th>Mail</th>
-                                <th>Prenom</th>
-                                <th>Nom</th>
 
-            
-                                <?php for ($i = 0; isset($data[$i]); $i++) { ?>
-                                    <tr>
-                                        <form action=admin-set.php method="post">
-                                            <td><?= $data[$i]['id'] ?></td>
-                                            <td><input type="text" name="email" class="form-control" value="<?= $data[$i]['login'] ?>"></td>
-                                            <td><input type="text" name="prenom" class="form-control" value="<?= $data[$i]['prenom'] ?>"></td>
-                                            <td><input type="text" name="nom" class="form-control" value="<?= $data[$i]['nom'] ?>"></td>
+            <table>
+                <th>id</th>
+                <th>Mail</th>
+                <th>Prenom</th>
+                <th>Nom</th>
 
-                                            <td>
-                                                <button type="submit" class="btn btn-info btn-lg" name="update" value="<?= $data[$i]['id'] ?>">Modifier</button>
-                                            </td>
-                                            <td>
-                                                <button type="submit" class="btn btn-danger btn-lg" name="delete" value="<?= $data[$i]['id'] ?>">Supprimmer</button>
-                                            </td>
-                                        </form>
-                                    </tr>
-            
-                            <?php }
-                            } else {
-                                header("Location:index.php");
-                            } ?>
-                            </table>
-                            <a class="btn btn-primary" href="profil.php" role="button">Retour</a>
+
+                <?php for ($i = 0; isset($data[$i]); $i++) { ?>
+                    <tr>
+                        <form action=admin-set.php method="post">
+                            <td><?= $data[$i]['id'] ?></td>
+                            <td><input type="text" name="email" class="form-control" value="<?= $data[$i]['login'] ?>"></td>
+                            <td><input type="text" name="prenom" class="form-control" value="<?= $data[$i]['prenom'] ?>"></td>
+                            <td><input type="text" name="nom" class="form-control" value="<?= $data[$i]['nom'] ?>"></td>
+
+                            <td>
+                                <button type="submit" class="btn btn-info btn-lg" name="update" value="<?= $data[$i]['id'] ?>">Modifier</button>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-danger btn-lg" name="delete" value="<?= $data[$i]['id'] ?>">Supprimmer</button>
+                            </td>
+                        </form>
+                    </tr>
+
+            <?php }
+            } else {
+                header("Location:index.php");
+            } ?>
+            </table>
+            <a class="btn btn-primary" href="profil.php" role="button">Retour</a>
             <div class="login-form">
                 <form action="admin-set.php" method="post">
                     <div class="form-group">
