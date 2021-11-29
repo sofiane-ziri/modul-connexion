@@ -19,6 +19,7 @@ $data = $req->fetch();
 <head>
     <title>Espace membre</title>
     <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet">
     <link rel="shortcut icon" href="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png" type="image/x-con">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -27,14 +28,6 @@ $data = $req->fetch();
 </head>
 
 <body>
-    <?php
-    /* Affiche la page admin seulement pour l'utilisateur admin */
-    if (isset($_SESSION['user']['id'])) {
-        if ($_SESSION['user']['id'] == 1) {
-            echo '<a class="btn btn-danger btn-lg" href="admin.php">Dashboadr</a>';
-        }
-    }
-    ?>
     <div class="container">
         <div class="text-center">
             <div class="col-md-12">
@@ -53,7 +46,14 @@ $data = $req->fetch();
                 }
                 ?>
                 <h1 class="p-5">Bonjour <?php echo $_SESSION['user']['prenom']; ?> !</h1>
-                <hr />
+                <?php
+                /* Affiche la page admin seulement pour l'utilisateur admin */
+                if (isset($_SESSION['user']['id'])) {
+                    if ($_SESSION['user']['id'] == 1) {
+                        echo '<a class="btn btn-secondary" href="admin.php">Dashboard</a>';
+                    }
+                }
+                ?>
                 <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">

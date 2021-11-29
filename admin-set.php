@@ -79,27 +79,27 @@ if (!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom'])
                             // On redirige avec le message de succès
                             header('Location:admin.php?reg_err=success');
                         } else {
-                            header('Location: inscription.php?reg_err=password');
+                            header('Location:admin.php?reg_err=password');
                             die();
                         }
                     } else {
-                        header('Location: inscription.php?reg_err=email');
+                        header('Location:admin.php?reg_err=email');
                         die();
                     }
                 } else {
-                    header('Location: inscription.php?reg_err=email_length');
+                    header('Location:admin.php?reg_err=email_length');
                     die();
                 }
             } else {
-                header('Location: inscription.php?reg_err=nom_length');
+                header('Location:admin.php?reg_err=nom_length');
                 die();
             }
         } else {
-            header('Location: inscription.php?reg_err=prenom_length');
+            header('Location:admin.php?reg_err=prenom_length');
             die();
         }
     } else {
-        header('Location: inscription.php?reg_err=already');
+        header('Location:admin.php?reg_err=already');
         die();
     }
 }

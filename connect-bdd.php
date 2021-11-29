@@ -8,4 +8,3 @@
     {
         die('Erreur : '.$e->getMessage());
     }
-?>
