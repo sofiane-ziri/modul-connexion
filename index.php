@@ -73,14 +73,15 @@
                             }
                         }
                         ?>
-                        <input type="email" name="login" class="form-control" placeholder="Email" required="required" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">Connexion</button>
-                    </div>
+                        <div class="form-group">
+                            <input type="text" name="prenom" class="form-control" placeholder="Prenom" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+                        </div>
                 </form>
                 <p class="text-center"><a href="inscription.php">Inscription</a></p>
                 <p class="text-center"><a href="https://github.com/sofiane-ziri/modul-connexion">Github</a></p>
