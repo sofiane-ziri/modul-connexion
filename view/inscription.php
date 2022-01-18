@@ -1,5 +1,7 @@
-<?php $title = 'Inscription'; ?>
-<?php require_once 'header.php'; ?>
+<?php
+$title = 'Inscription';
+require_once 'header.php';
+?>
 
 
 <body>
@@ -56,6 +58,8 @@
                 <button type="submit" class="btn btn-primary btn-block">Inscription</button>
             </div>
         </form>
+        <p class="text-center"><a href="index.php">Connexion</a></p>
+
     </div>
 </body>
 

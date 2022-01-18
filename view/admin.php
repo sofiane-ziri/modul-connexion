@@ -1,4 +1,7 @@
 <?php
+ $title = 'Admin'; 
+ require_once 'header.php';
+
 session_start(); // Démarrage de la session
 require_once '../model/connect-bdd.php'; // On inclut la connexion à la base de données
 if ($_SESSION['user']['id'] == 1) {
@@ -31,25 +34,25 @@ if ($_SESSION['user']['id'] == 1) {
 
 
                 <?php for ($i = 0; isset($data[$i]); $i++) { ?>
-                    <tr>
-                        <form action=../controller/admin-set.php method="post">
-                            <td><?= $data[$i]['id'] ?></td>
-                            <td><input type="text" name="email" class="form-control" value="<?= $data[$i]['login'] ?>"></td>
-                            <td><input type="text" name="prenom" class="form-control" value="<?= $data[$i]['prenom'] ?>"></td>
-                            <td><input type="text" name="nom" class="form-control" value="<?= $data[$i]['nom'] ?>"></td>
-
-                            <td>
-                                <button type="submit" class="btn btn-info btn-lg" name="update" value="<?= $data[$i]['id'] ?>">Modifier</button>
-                            </td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-lg" name="delete" value="<?= $data[$i]['id'] ?>">Supprimmer</button>
-                            </td>
-                        </form>
-                    </tr>
+                        <tr>
+                            <form action=../controller/admin-set.php method="post">
+                                <td><?= $data[$i]['id'] ?></td>
+                                <td><input type="text" name="email" class="form-control" value="<?= $data[$i]['login'] ?>"></td>
+                                <td><input type="text" name="prenom" class="form-control" value="<?= $data[$i]['prenom'] ?>"></td>
+                                <td><input type="text" name="nom" class="form-control" value="<?= $data[$i]['nom'] ?>"></td>
+                                <td>
+                                    <button type="submit" class="btn btn-info btn-lg" name="update" value="<?= $data[$i]['id'] ?>">Modifier</button>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-danger btn-lg" name="delete" value="<?= $data[$i]['id'] ?>">Supprimmer</button>
+                                </td>
+                            </form>
+                        </tr>
+                    </div>
 
             <?php }
             } else {
-                header("Location:../index.php");
+                header("Location:index.php");
             } ?>
             </table>
             <a class="btn btn-primary" href="profil.php" role="button">Retour</a>

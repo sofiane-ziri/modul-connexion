@@ -1,11 +1,11 @@
 <?php
-require_once 'view/header.php';
+require_once 'header.php';
 $title = 'Connexion';
 ?>
 
 <body>
     <div class="login-form">
-        <form action="../modul-de-connexion/controller/connexion.php" method="post">
+        <form action="../controller/connexion.php" method="post">
             <h2 class="text-center">Connexion</h2>
             <div class="form-group">
                 <?php
@@ -62,7 +62,7 @@ $title = 'Connexion';
                     <button type="submit" class="btn btn-primary btn-block">Connexion</button>
                 </div>
         </form>
-        <p class="text-center"><a href="view/inscription.php">Inscription</a></p>
+        <p class="text-center"><a href="inscription.php">Inscription</a></p>
         <p class="text-center"><a href="https://github.com/sofiane-ziri/modul-connexion">Github</a></p>
 
     </div>
