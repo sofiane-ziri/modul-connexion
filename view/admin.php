@@ -54,7 +54,7 @@ if ($_SESSION['user']['id'] == 1) {
             </table>
             <a class="btn btn-primary" href="profil.php" role="button">Retour</a>
             <div class="login-form">
-                <form action="../controller/admin-set.php" method="post">
+                <form action="../controller/admi" method="post">
                     <div class="form-group">
                         <?php
                         if (isset($_GET['reg_err'])) {
