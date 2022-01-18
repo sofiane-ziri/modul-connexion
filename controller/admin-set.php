@@ -1,6 +1,6 @@
 <?php
 session_start(); // Démarrage de la session
-require_once 'connect-bdd.php'; // On inclut la connexion à la base de données
+require_once '../model/connect-bdd.php'; // On inclut la connexion à la base de données
 if ($_SESSION['user']['id'] == 1) {
 
 
@@ -20,7 +20,7 @@ if ($_SESSION['user']['id'] == 1) {
             "nom" => $nom,
             "prenom" => $prenom,
         ));
-        header("Location:admin.php");
+        header("Location:../view/admin.php");
     }
     if (isset($_POST['delete'])) {
         $id = htmlspecialchars(trim($_POST['delete']));
@@ -28,12 +28,12 @@ if ($_SESSION['user']['id'] == 1) {
         $delete->execute(array(
             "id" => $id,
         ));
-        header("Location:admin.php");
+        header("Location:../view/admin.php");
     }
     for ($i = 0; isset($data[$i]); $i++) {
     }
 } else {
-    header("Location:index.php");
+    header("Location:../index.php");
 }
 
 
@@ -77,29 +77,29 @@ if (!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom'])
 
                             ));
                             // On redirige avec le message de succès
-                            header('Location:admin.php?reg_err=success');
+                            header('Location:../view/admin.php?reg_err=success');
                         } else {
-                            header('Location:admin.php?reg_err=password');
+                            header('Location:../index.php?reg_err=password');
                             die();
                         }
                     } else {
-                        header('Location:admin.php?reg_err=email');
+                        header('Location:../index.php?reg_err=email');
                         die();
                     }
                 } else {
-                    header('Location:admin.php?reg_err=email_length');
+                    header('Location:../index.php?reg_err=email_length');
                     die();
                 }
             } else {
-                header('Location:admin.php?reg_err=nom_length');
+                header('Location:../index.php?reg_err=nom_length');
                 die();
             }
         } else {
-            header('Location:admin.php?reg_err=prenom_length');
+            header('Location:../index.php?reg_err=prenom_length');
             die();
         }
     } else {
-        header('Location:admin.php?reg_err=already');
+        header('Location:../index.php?reg_err=already');
         die();
     }
 }

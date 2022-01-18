@@ -2,7 +2,7 @@
 // Démarrage de la session 
 session_start();
 // Include de la base de données
-require_once '../connect-bdd.php'; // On inclut la connexion à la base de données
+require_once '../model/connect-bdd.php'; // On inclut la connexion à la base de données
 
 // Si la session n'existe pas 
 if (!isset($_SESSION['user'])) {
@@ -40,14 +40,14 @@ if (!empty($_POST['current_password']) && !empty($_POST['new_password']) && !emp
                 "login" => $_SESSION['user']['login']
             ));
             // On redirige
-            header('Location: ../profil.php?err=success_password');
+            header('Location: ../view/profil.php?err=success_password');
             die();
         }
     } else {
-        header('Location: ../profil.php?err=current_password');
+        header('Location: ../view/profil.php?err=current_password');
         die();
     }
 } else {
-    header('Location: ../profil.php');
+    header('Location: ../view/profil.php');
     die();
 }

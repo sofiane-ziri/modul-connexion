@@ -1,6 +1,6 @@
 <?php
 session_start(); // Démarrage de la session
-require_once 'connect-bdd.php'; // On inclut la connexion à la base de données
+require_once '../model/connect-bdd.php'; // On inclut la connexion à la base de données
 
 if (!empty($_POST['prenom']) && !empty($_POST['password'])) // Si il existe les champs email, password et qu'il sont pas vident
 {
@@ -26,21 +26,21 @@ if (!empty($_POST['prenom']) && !empty($_POST['password'])) // Si il existe les 
             if (password_verify($password, $data['password'])) {
                 // On créer la session et on redirige sur profil.php
                 $_SESSION['user'] = $data;
-                header('Location: profil.php');
+                header('Location:../view/profil.php');
                 die();
             } else {
-                header('Location: index.php?login_err=password');
+                header('Location: ../index.php?login_err=password');
                 die();
             }
         } else {
-            header('Location: index.php?login_err=email');
+            header('Location: ../index.php?login_err=email');
             die();
         }
     } else {
-        header('Location: index.php?login_err=already');
+        header('Location: ../index.php?login_err=already');
         die();
     }
 } else {
-    header('Location: index.php');
+    header('Location: ../index.php');
     die();
 } // si le formulaire est envoyé sans aucune données

@@ -1,5 +1,5 @@
 <?php
-require_once 'connect-bdd.php'; //connexion à la bdd
+require_once '../model/connect-bdd.php'; // connexion à la base de données
 
 // Si les variables existent et qu'elles ne sont pas vides
 if (!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['password']) && !empty($_POST['password_retype'])) {
@@ -42,29 +42,29 @@ if (!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom'])
 
                             ));
                             // On redirige avec le message de succès
-                            header('Location:index.php?reg_err=success');
+                            header('Location:../index.php?reg_err=success');
                         } else {
-                            header('Location: inscription.php?reg_err=password');
+                            header('Location: ../view/inscription.php?reg_err=password');
                             die();
                         }
                     } else {
-                        header('Location: inscription.php?reg_err=email');
+                        header('Location: ../view/inscription.php?reg_err=email');
                         die();
                     }
                 } else {
-                    header('Location: inscription.php?reg_err=email_length');
+                    header('Location: ../view/inscription.php?reg_err=email_length');
                     die();
                 }
             } else {
-                header('Location: inscription.php?reg_err=nom_length');
+                header('Location: ../view/inscription.php?reg_err=nom_length');
                 die();
             }
         } else {
-            header('Location: inscription.php?reg_err=prenom_length');
+            header('Location: ../view/inscription.php?reg_err=prenom_length');
             die();
         }
     } else {
-        header('Location: inscription.php?reg_err=already');
+        header('Location: ../view/inscription.php?reg_err=already');
         die();
     }
 }

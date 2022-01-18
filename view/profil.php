@@ -1,16 +1,6 @@
 <?php
 session_start();
-require_once 'connect-bdd.php'; // On inclut la connexion à la base de données
-// si la session existe pas soit si l'on est pas connecté on redirige
-if (!isset($_SESSION['user'])) {
-    header('Location:index.php');
-    die();
-}
-
-// On récupere les données de l'utilisateur
-$req = $bdd->prepare('SELECT * FROM utilisateurs WHERE id = ?');
-$req->execute(array($_SESSION['user']));
-$data = $req->fetch();
+require_once '../model/connect-bdd.php';
 
 ?>
 <!doctype html>
@@ -58,7 +48,7 @@ $data = $req->fetch();
                 <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
                     Changer mon mot de passe
                 </button>
-                <a href="deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
+                <a href="../controller/deconnexion.php" class="btn btn-danger btn-lg">Déconnexion</a>
             </div>
         </div>
     </div>
@@ -74,7 +64,7 @@ $data = $req->fetch();
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="layouts/change_password.php" method="POST">
+                    <form action="../controller/change_password.php" method="POST">
                         <label for='current_password'>Mot de passe actuel</label>
                         <input type="password" id="current_password" name="current_password" class="form-control" required />
                         <br />

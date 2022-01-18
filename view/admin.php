@@ -1,6 +1,6 @@
 <?php
 session_start(); // Démarrage de la session
-require_once 'connect-bdd.php'; // On inclut la connexion à la base de données
+require_once '../model/connect-bdd.php'; // On inclut la connexion à la base de données
 if ($_SESSION['user']['id'] == 1) {
 
 
@@ -32,7 +32,7 @@ if ($_SESSION['user']['id'] == 1) {
 
                 <?php for ($i = 0; isset($data[$i]); $i++) { ?>
                     <tr>
-                        <form action=admin-set.php method="post">
+                        <form action=../controller/admin-set.php method="post">
                             <td><?= $data[$i]['id'] ?></td>
                             <td><input type="text" name="email" class="form-control" value="<?= $data[$i]['login'] ?>"></td>
                             <td><input type="text" name="prenom" class="form-control" value="<?= $data[$i]['prenom'] ?>"></td>
@@ -49,12 +49,12 @@ if ($_SESSION['user']['id'] == 1) {
 
             <?php }
             } else {
-                header("Location:index.php");
+                header("Location:../index.php");
             } ?>
             </table>
             <a class="btn btn-primary" href="profil.php" role="button">Retour</a>
             <div class="login-form">
-                <form action="admin-set.php" method="post">
+                <form action="../controller/admin-set.php" method="post">
                     <div class="form-group">
                         <?php
                         if (isset($_GET['reg_err'])) {

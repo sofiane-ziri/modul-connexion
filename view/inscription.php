@@ -13,7 +13,7 @@
 
 <body>
     <div class="login-form">
-        <form action="insertion.php" method="post">
+        <form action="../controller/insertion.php" method="post">
             <h2 class="text-center">Inscription</h2>
             <div class="form-group">
                 <?php
