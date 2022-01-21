@@ -33,7 +33,7 @@ if ($_SESSION['user']['id'] == 1) {
     for ($i = 0; isset($data[$i]); $i++) {
     }
 } else {
-    header("Location:../index.php");
+    header("Location:../connexion.php");
 }
 
 
@@ -79,27 +79,27 @@ if (!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom'])
                             // On redirige avec le message de succès
                             header('Location:../view/admin.php?reg_err=success');
                         } else {
-                            header('Location:../index.php?reg_err=password');
+                            header('Location:../connexion.php?reg_err=password');
                             die();
                         }
                     } else {
-                        header('Location:../index.php?reg_err=email');
+                        header('Location:../connexion.php?reg_err=email');
                         die();
                     }
                 } else {
-                    header('Location:../index.php?reg_err=email_length');
+                    header('Location:../connexion.php?reg_err=email_length');
                     die();
                 }
             } else {
-                header('Location:../index.php?reg_err=nom_length');
+                header('Location:../connexion.php?reg_err=nom_length');
                 die();
             }
         } else {
-            header('Location:../index.php?reg_err=prenom_length');
+            header('Location:../connexion.php?reg_err=prenom_length');
             die();
         }
     } else {
-        header('Location:../index.php?reg_err=already');
+        header('Location:../connexion.php?reg_err=already');
         die();
     }
 }

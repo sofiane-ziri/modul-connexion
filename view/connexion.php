@@ -1,11 +1,11 @@
 <?php
-require_once 'header.php';
 $title = 'Connexion';
+require_once 'header.php';
 ?>
 
 <body>
     <div class="login-form">
-        <form action="../controller/connexion.php" method="post">
+        <form action="../controller/connexion-set.php" method="post">
             <h2 class="text-center">Connexion</h2>
             <div class="form-group">
                 <?php
@@ -67,5 +67,6 @@ $title = 'Connexion';
 
     </div>
 </body>
-
-</html>
+<?php
+require_once 'header.php';
+?>

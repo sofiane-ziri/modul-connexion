@@ -14,4 +14,5 @@
             <link href="../public/CSS/style.css" rel="stylesheet">
             <link rel="shortcut icon" href="https://img.icons8.com/external-bearicons-glyph-bearicons/64/000000/external-User-essential-collection-bearicons-glyph-bearicons.png" type="image/x-con">
     </head>
-</html>
+    <header>
+    </header>

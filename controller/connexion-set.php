@@ -29,18 +29,18 @@ if (!empty($_POST['prenom']) && !empty($_POST['password'])) // Si il existe les 
                 header('Location:../view/profil.php');
                 die();
             } else {
-                header('Location: ../index.php?login_err=password');
+                header('Location: ../view/connexion.php?login_err=password');
                 die();
             }
         } else {
-            header('Location: ../index.php?login_err=email');
+            header('Location: ../view/connexion.php?login_err=email');
             die();
         }
     } else {
-        header('Location: ../index.php?login_err=already');
+        header('Location: ../view/connexion.php?login_err=already');
         die();
     }
 } else {
-    header('Location: ../index.php');
+    header('Location: ../view/connexion.php');
     die();
 } // si le formulaire est envoyé sans aucune données

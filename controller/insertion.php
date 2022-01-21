@@ -42,7 +42,7 @@ if (!empty($_POST['login']) && !empty($_POST['prenom']) && !empty($_POST['nom'])
 
                             ));
                             // On redirige avec le message de succès
-                            header('Location:../index.php?reg_err=success');
+                            header('Location:../connexion.php?reg_err=success');
                         } else {
                             header('Location: ../view/inscription.php?reg_err=password');
                             die();

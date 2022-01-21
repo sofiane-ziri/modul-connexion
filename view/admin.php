@@ -52,7 +52,7 @@ if ($_SESSION['user']['id'] == 1) {
 
             <?php }
             } else {
-                header("Location:index.php");
+                header("Location:connexion.php");
             } ?>
             </table>
             <a class="btn btn-primary" href="profil.php" role="button">Retour</a>

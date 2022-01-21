@@ -6,7 +6,7 @@ require_once '../model/connect-bdd.php'; // On inclut la connexion à la base de
 
 // Si la session n'existe pas 
 if (!isset($_SESSION['user'])) {
-    header('Location:../index.php');
+    header('Location:../connexion.php');
     die();
 }
 

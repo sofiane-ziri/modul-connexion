@@ -1,8 +1,9 @@
 <?php
+$title = 'Profil';
 session_start();
 require_once '../model/connect-bdd.php';
 require_once 'header.php';
-$title = 'Profil';
+
 
 ?>
 <!doctype html>
@@ -80,4 +81,4 @@ $title = 'Profil';
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
-</html>
+<?php require_once 'header.php'; ?>
