@@ -3,7 +3,7 @@ session_start();
 // Check if the user is already logged in
 if (isset($_SESSION['user'])) {
     // Redirect the user to the home page or dashboard
-    header('Location: /home.php');
+    header('Location: /view/profil.php');
     exit();
 }
 // Handle the login form submission
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user'] = $username;
 
         // Redirect the user to the home page or dashboard
-        header('Location: home.php');
+        header('Location: /view/login_form.php');
         exit();
     } else {
         // Invalid login credentials, show an error message or redirect to the login page

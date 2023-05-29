@@ -70,17 +70,17 @@ class AuthController
 // fonction de connexion 
     public function login()
     {
-        if (isset($_POST['login'], $_POST['password'], $_POST['password_retype'])) {
+       
+        if (isset($_POST['login'], $_POST['password'])) {
             $login = htmlspecialchars($_POST['login']);
             $password = htmlspecialchars($_POST['password']);
-            $password_retype = htmlspecialchars($_POST['password_retype']);
         
             $login = strtolower($login);
             $check = $this->bdd->prepare('SELECT login, prenom, nom, id, password FROM utilisateurs WHERE login = ?');
             $check->execute(array($login));
             $data = $check->fetch();
             $row = $check->rowCount();
-        
+            
             if ($row > 0) {
                 if (password_verify($password, $data['password'])) {
                     $_SESSION['user'] = $data;
@@ -117,6 +117,5 @@ if (isset($_POST['login'])) {
     $Auth->login();
 }
 if (isset($_POST['logout'])) {
-
     $Auth->logout();
 }
