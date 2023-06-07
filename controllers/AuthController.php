@@ -15,22 +15,20 @@ class AuthController
     public function register()
     {
         
-        if (isset($_POST['login'], $_POST['prenom'], $_POST['nom'], $_POST['password'], $_POST['password_retype'])) {
+        if (isset($_POST['login'], $_POST['prenom'], $_POST['password'], $_POST['password_retype'])) {
             $login = trim($_POST['login']);
             $prenom = trim($_POST['prenom']);
-            $nom = trim($_POST['nom']);
             $password = trim($_POST['password']);
             $password_retype = trim($_POST['password_retype']);
 
             $maxInputLength = 255;
-            if (strlen($login) > $maxInputLength || strlen($prenom) > $maxInputLength || strlen($nom) > $maxInputLength) {
+            if (strlen($login) > $maxInputLength || strlen($prenom) > $maxInputLength) {
                 header('Location: ../view/register_form.php?reg_err=input_length');
                 die();
             }
 
             $login = htmlspecialchars($login);
             $prenom = htmlspecialchars($prenom);
-            $nom = htmlspecialchars($nom);
             $login = strtolower($login);
 
             if (!filter_var($login, FILTER_VALIDATE_EMAIL)) {
@@ -47,11 +45,10 @@ class AuthController
                     $cost = ['cost' => 12];
                     $password = password_hash($password, PASSWORD_BCRYPT, $cost);
 
-                    $insert = $this->bdd->prepare('INSERT INTO utilisateurs (login, prenom, nom, password) VALUES (:login, :prenom, :nom, :password)');
+                    $insert = $this->bdd->prepare('INSERT INTO utilisateurs (login, prenom, password) VALUES (:login, :prenom, :password)');
                     $insert->execute(array(
                         'login' => $login,
                         'prenom' => $prenom,
-                        'nom' => $nom,
                         'password' => $password,
                     ));
 
@@ -70,13 +67,13 @@ class AuthController
 // fonction de connexion 
     public function login()
     {
-       
+       session_start();
         if (isset($_POST['login'], $_POST['password'])) {
             $login = htmlspecialchars($_POST['login']);
             $password = htmlspecialchars($_POST['password']);
         
             $login = strtolower($login);
-            $check = $this->bdd->prepare('SELECT login, prenom, nom, id, password FROM utilisateurs WHERE login = ?');
+            $check = $this->bdd->prepare('SELECT login, prenom, id, password FROM utilisateurs WHERE login = ?');
             $check->execute(array($login));
             $data = $check->fetch();
             $row = $check->rowCount();
